@@ -3,6 +3,11 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
+import { setupGlobalErrorHandlers } from './app/global-error-handler';
+
+// ВАЖНО: Добавление глобальной обработки ошибок для перехвата
+// необработанных ошибок при работе с HttpClient в многопоточности
+setupGlobalErrorHandlers();
 
 if (environment.production) {
   enableProdMode();
